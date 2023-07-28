@@ -11,6 +11,7 @@ This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeS
 -> TypeScript
 -> Tailwind
 -> Posthog
+-> Chart.js
 
 ```
 
