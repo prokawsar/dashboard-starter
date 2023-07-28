@@ -2,6 +2,19 @@
 
 This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeScript, Charts.js, Fontawesome
 
+## Tech Stack
+
+
+```bash
+-> Svelte
+-> SvelteKit
+-> TypeScript
+-> Tailwind
+-> Posthog
+
+```
+
+
 ## After Cloning this project
 
 If you're seeing this, you've probably already done this step. Congrats!
