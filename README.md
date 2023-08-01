@@ -4,7 +4,6 @@ This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeS
 
 ## Tech Stack
 
-
 ```bash
 -> Svelte
 -> SvelteKit
@@ -12,9 +11,9 @@ This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeS
 -> Tailwind
 -> Posthog
 -> Chart.js
+-> Tippy.js
 
 ```
-
 
 ## After Cloning this project
 

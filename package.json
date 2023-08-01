@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"chart.js": "^4.3.2",
-		"posthog-js": "^1.75.2"
+		"posthog-js": "^1.75.2",
+		"tippy.js": "^6.3.7"
 	}
 }
