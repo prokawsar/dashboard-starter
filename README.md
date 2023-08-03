@@ -9,10 +9,15 @@ This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeS
 -> SvelteKit
 -> TypeScript
 -> Tailwind
--> Posthog
--> Chart.js
--> Tippy.js
+```
 
+Tools
+
+```bash
+-> Posthog (For track)
+-> Chart.js (For chart)
+-> Tippy.js (For tooltip)
+-> @inlang/sdk-js (For language support)
 ```
 
 ## After Cloning this project
