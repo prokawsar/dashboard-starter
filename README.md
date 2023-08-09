@@ -18,6 +18,7 @@ Tools
 -> Chart.js (For chart)
 -> Tippy.js (For tooltip)
 -> @inlang/sdk-js (For language support)
+-> svelte-fa (fontawesome icons)
 ```
 
 ## After Cloning this project
