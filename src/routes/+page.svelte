@@ -1,4 +1,5 @@
 <script>
+	import { langSwitcher } from '$lib/i18n'
 	import { _, locales, locale } from 'svelte-i18n'
 </script>
 
@@ -7,7 +8,7 @@
 </svelte:head>
 
 <div class="flex flex-row gap-2 container mx-auto justify-center">
-	<select bind:value={$locale}>
+	<select bind:value={$locale} on:change={langSwitcher}>
 		{#each $locales as locale}
 			<option value={locale}>{locale}</option>
 		{/each}

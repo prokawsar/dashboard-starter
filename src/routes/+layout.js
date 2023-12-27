@@ -12,7 +12,8 @@ export const load = async () => {
 		//   '<ph_project_api_key>',
 		//   { api_host: 'https://app.posthog.com' }
 		// )
-		locale.set(window.navigator.language)
+		const lang = localStorage.getItem('lang') || 'en'
+		locale.set(lang)
 	}
 	await waitLocale()
 
