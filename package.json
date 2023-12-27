@@ -38,6 +38,7 @@
 		"apexcharts": "^3.41.1",
 		"chart.js": "^4.3.2",
 		"posthog-js": "^1.75.2",
+		"svelte-i18n": "^4.0.0",
 		"tippy.js": "^6.3.7"
 	}
 }
