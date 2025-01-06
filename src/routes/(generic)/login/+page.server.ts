@@ -1,21 +1,30 @@
+import { setAuthCookie } from "@/lib/server/authCookie";
+import { api } from "@/lib/utils/api";
 import { fail } from "@sveltejs/kit";
 import type { Actions } from "./$types";
-import { api } from "@/lib/utils/api";
-import { setAuthCookie } from "@/lib/server/authCookie";
 
 export const actions: Actions = {
 	login: async ({ request, cookies }) => {
 		const formData = await request.formData();
 		const email = formData.get("email") as string;
-		// const password = formData.get("password") as string;
-		const response = await api.post("/login", { username: "emilys", password: "emilyspass" });
+		const password = formData.get("password") as string;
 
-		if (!response) {
-			return fail(400, { error: "error.message", email });
+		if (!email || !password) {
+			return fail(400, { error: "Email and password are required" });
 		}
 
-		setAuthCookie(cookies, response.accessToken);
+		try {
+			const { accessToken, user } = await api.post("/login", {
+				username: "emilys",
+				password: "emilyspass",
+			});
 
-		return { success: true, email };
+			setAuthCookie(cookies, accessToken);
+			// throw redirect(302, "/dashboard");
+			return { success: true, redirect: "/dashboard" };
+		} catch (error) {
+			// return fail(400, { error: 'Invalid credentials' });
+			return fail(400, { error: "error.message", email });
+		}
 	},
 };

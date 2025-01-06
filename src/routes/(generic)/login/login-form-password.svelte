@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
+	import { goto } from "$app/navigation";
 	import { Button } from "$lib/components/ui/button";
 	import { Input } from "$lib/components/ui/input";
 	import { Label } from "$lib/components/ui/label";
@@ -19,12 +20,12 @@
 	function handleSubmit() {
 		loading = true;
 		return async ({ result, update }) => {
-			console.log(result);
 			if (result.type === "failure") {
 				error = result.data?.error;
 				email = result.data?.email || email;
 			} else if (result.type === "success") {
 				error = null;
+				goto(result.data?.redirect || "/dashboard");
 			}
 			await update({ reset: false });
 			loading = false;
