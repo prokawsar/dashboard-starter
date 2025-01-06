@@ -1,30 +1,20 @@
-import { fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import { fail } from "@sveltejs/kit";
+import type { Actions } from "./$types";
+import { api } from "@/lib/utils/api";
+import { setAuthCookie } from "@/lib/server/authCookie";
 
 export const actions: Actions = {
-	login: async ({ request }) => {
+	login: async ({ request, cookies }) => {
 		const formData = await request.formData();
-		const email = formData.get('email') as string;
+		const email = formData.get("email") as string;
+		// const password = formData.get("password") as string;
+		const response = await api.post("/login", { username: "emilys", password: "emilyspass" });
 
-		// login api call
-		let error = null;
-
-		if (error) {
-			return fail(400, { error: error.message, email });
+		if (!response) {
+			return fail(400, { error: "error.message", email });
 		}
 
-		return { success: true, email };
-	},
-	loginwithpassword: async ({ request }) => {
-		const formData = await request.formData();
-		const email = formData.get('email') as string;
-		const password = formData.get('password') as string;
-
-		let error = null;
-
-		if (error) {
-			return fail(400, { error: error.message, email });
-		}
+		setAuthCookie(cookies, response.accessToken);
 
 		return { success: true, email };
 	},
