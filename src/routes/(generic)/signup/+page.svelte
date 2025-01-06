@@ -1,5 +1,5 @@
 <script lang="ts">
-	import UserAuthForm from './signup-form.svelte';
+	import UserAuthForm from "./signup-form.svelte";
 </script>
 
 <svelte:head>
