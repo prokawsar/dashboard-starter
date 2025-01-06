@@ -32,6 +32,16 @@
 		--sidebar-accent-foreground: 240 5.9% 10%;
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
+
+		--hosty: #0ff3a8;
+		--hosty-foreground: #000;
+		--hosty-background: #fff;
+		--hosty-border: #0ff3a8;
+		--hosty-ring: #0ff3a8;
+		--hosty-primary: #0ff3a8;
+		--hosty-primary-foreground: #000;
+		--hosty-accent: #0ff3a8;
+		--hosty-accent-foreground: #000;
 	}
 
 	.dark {

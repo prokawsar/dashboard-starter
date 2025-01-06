@@ -1,6 +1,6 @@
-import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
 	darkMode: ["class"],
@@ -58,7 +58,17 @@ const config: Config = {
 					"accent-foreground": "hsl(var(--sidebar-accent-foreground))",
 					border: "hsl(var(--sidebar-border))",
 					ring: "hsl(var(--sidebar-ring))",
-        		},
+        },
+				hosty: {
+					DEFAULT: "hsl(var(--hosty-background))",
+					foreground: "hsl(var(--hosty-foreground))",
+					primary: "var(--hosty-primary)",
+					"primary-foreground": "hsl(var(--hosty-primary-foreground))",
+					accent: "hsl(var(--hosty-accent))",
+					"accent-foreground": "hsl(var(--hosty-accent-foreground))",
+					border: "hsl(var(--hosty-border))",
+					ring: "hsl(var(--hosty-ring))",
+				}
 			},
 			borderRadius: {
 				xl: "calc(var(--radius) + 4px)",

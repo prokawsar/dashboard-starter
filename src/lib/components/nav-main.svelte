@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import * as Sidebar from '$lib/components/ui/sidebar';
+	import { page } from "$app/stores";
+	import * as Sidebar from "$lib/components/ui/sidebar";
 
 	let {
-		items
+		items,
 	}: {
 		items: {
 			title: string;
@@ -21,10 +21,10 @@
 
 <Sidebar.Group>
 	<Sidebar.GroupLabel>Platform</Sidebar.GroupLabel>
-	<Sidebar.Menu>
+	<Sidebar.Menu class="gap-0">
 		{#each items as item (item.title)}
 			<Sidebar.MenuItem>
-				<Sidebar.MenuButton isActive={item.url == $page.url.pathname}>
+				<Sidebar.MenuButton isActive={item.url == $page.url.pathname} class="!py-3 text-base">
 					{#snippet tooltipContent()}
 						{item.title}
 					{/snippet}
