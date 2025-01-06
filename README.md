@@ -1,6 +1,6 @@
 # dashboard-starter
 
-This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeScript, Charts.js, Fontawesome
+This is starter repo for frontend project. With stack of Svelte, Tailwind, TypeScript, Charts.js
 
 ## Tech Stack
 
@@ -16,9 +16,6 @@ Tools
 ```bash
 -> Posthog (For track)
 -> Chart.js (For chart)
--> Tippy.js (For tooltip)
--> @inlang/sdk-js (For language support)
--> svelte-fa (fontawesome icons)
 ```
 
 ## After Cloning this project

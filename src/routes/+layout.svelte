@@ -1,17 +1,10 @@
-<script>
-	import '../app.css';
-	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
-	import posthog from 'posthog-js';
+<script lang="ts">
+	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import '@/app.css';
 
-	onMount(() => {
-		if (browser) {
-			import('$lib/utils/tooltip');
-		}
-	});
+	let { data, children } = $props();
 
-	$: $page.url.pathname, browser && posthog.capture('$pageview', { layout: true });
 </script>
 
-<slot />
+{@render children()}
