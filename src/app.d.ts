@@ -1,14 +1,13 @@
-
+import type { User } from "$lib/stores/authStore";
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			user: null;
+			user: User | null;
 		}
 		// interface PageData {}
 		// interface Platform {}
 	}
 }
 
-export { };
-
+export {};

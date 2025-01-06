@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { Button } from '$lib/components/ui/button';
-	import { Input } from '$lib/components/ui/input';
-	import { Label } from '$lib/components/ui/label';
-	import { Loader2 } from 'lucide-svelte';
+	import { enhance } from "$app/forms";
+	import { goto } from "$app/navigation";
+	import { Button } from "$lib/components/ui/button";
+	import { Input } from "$lib/components/ui/input";
+	import { Label } from "$lib/components/ui/label";
+	import { Loader2 } from "lucide-svelte";
 
 	interface Props {
 		form?: { email?: string; error?: string };
@@ -12,19 +13,19 @@
 	let { form = {} }: Props = $props();
 
 	let loading = $state(false);
-	let email = $state(form.email || '');
-	let password = $state('');
+	let email = $state(form.email || "");
+	let password = $state("");
 	let error: string | null = $state(null);
 
 	function handleSubmit() {
 		loading = true;
 		return async ({ result, update }) => {
-			console.log(result);
-			if (result.type === 'failure') {
+			if (result.type === "failure") {
 				error = result.data?.error;
 				email = result.data?.email || email;
-			} else if (result.type === 'success') {
+			} else if (result.type === "success") {
 				error = null;
+				goto(result.data?.redirect || "/dashboard");
 			}
 			await update({ reset: false });
 			loading = false;
@@ -32,7 +33,7 @@
 	}
 </script>
 
-<form method="POST" action={'?/loginwithpassword'} use:enhance={handleSubmit} class="space-y-4">
+<form method="POST" action={"?/login"} use:enhance={handleSubmit} class="space-y-4">
 	<div class="space-y-2">
 		<Label for="email">Email</Label>
 		<Input
@@ -65,6 +66,6 @@
 		{#if loading}
 			<Loader2 class="mr-2 h-4 w-4 animate-spin" />
 		{/if}
-		{'Login'}
+		{"Login"}
 	</Button>
 </form>

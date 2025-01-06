@@ -1,31 +1,30 @@
-import { fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import { setAuthCookie } from "@/lib/server/authCookie";
+import { api } from "@/lib/utils/api";
+import { fail } from "@sveltejs/kit";
+import type { Actions } from "./$types";
 
 export const actions: Actions = {
-	login: async ({ request }) => {
+	login: async ({ request, cookies }) => {
 		const formData = await request.formData();
-		const email = formData.get('email') as string;
+		const email = formData.get("email") as string;
+		const password = formData.get("password") as string;
 
-		// login api call
-		let error = null;
-
-		if (error) {
-			return fail(400, { error: error.message, email });
+		if (!email || !password) {
+			return fail(400, { error: "Email and password are required" });
 		}
 
-		return { success: true, email };
-	},
-	loginwithpassword: async ({ request }) => {
-		const formData = await request.formData();
-		const email = formData.get('email') as string;
-		const password = formData.get('password') as string;
+		try {
+			const { accessToken, user } = await api.post("/login", {
+				username: "emilys",
+				password: "emilyspass",
+			});
 
-		let error = null;
-
-		if (error) {
-			return fail(400, { error: error.message, email });
+			setAuthCookie(cookies, accessToken);
+			// throw redirect(302, "/dashboard");
+			return { success: true, redirect: "/dashboard" };
+		} catch (error) {
+			// return fail(400, { error: 'Invalid credentials' });
+			return fail(400, { error: "error.message", email });
 		}
-
-		return { success: true, email };
 	},
 };
